@@ -1,0 +1,16 @@
+<footer class="site-footer" style="background-color: #f8f9fa; border-top: 1px solid #eee; padding: 50px 0; text-align: center;">
+    <div class="container">
+        <nav class="footer-nav" style="margin-bottom: 20px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
+            {{ range .Site.Menus.footer }}
+            <a href="{{ .URL | relURL }}" style="color: #6c757d; text-decoration: none; font-size: 0.85rem; font-weight: 500;">
+                {{ .Name }}
+            </a>
+            {{ end }}
+        </nav>
+
+        <div style="color: #adb5bd; font-size: 0.8rem;">
+            <p>&copy; 2026 {{ .Site.Title }}. All rights reserved.</p>
+            <p style="margin-top: 10px; font-style: italic;">Empowering the future through AI and Automation.</p>
+        </div>
+    </div>
+</footer>

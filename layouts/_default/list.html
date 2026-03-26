@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="home-header" style="border-bottom: 2px solid #f1f3f5; padding-bottom: 15px; margin-bottom: 30px;">
+    <h2 style="margin: 0 0 5px 0; font-size: 1.3rem; font-weight: 700; color: #1a1a1a;">{{ .Title }}</h2>
+    <p style="margin: 0; color: #6c757d; font-size: 0.9rem; font-family: 'Inter', sans-serif;">
+        Browsing all professional insights in {{ .Title }}
+    </p>
+</div>
+
+{{ $paginator := .Paginate .Pages 10 }}
+
+<ul class="post-list" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 20px;">
+    {{ range $paginator.Pages }}
+    <li class="post-item" style="background: #ffffff; border-radius: 10px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #f1f3f5; transition: transform 0.2s, box-shadow 0.2s;">
+        <div class="post-title" style="margin-bottom: 10px;">
+            <a href="{{ .Permalink }}" style="text-decoration: none; color: #004085; font-size: 1.3rem; font-weight: 700; line-height: 1.4; transition: color 0.2s;">
+                {{ .Title }}
+            </a>
+        </div>
+        <div class="post-meta" style="font-size: 0.85rem; color: #adb5bd; margin-bottom: 15px; display: flex; align-items: center; gap: 12px;">
+            <span class="date"><i class="fa fa-calendar-o"></i> {{ .Date.Format "Jan 02, 2006" }}</span>
+            {{ range .Params.categories }}
+            {{ $displayName := . }}
+            {{ if eq . "ai_lab" }}{{ $displayName = "AI Lab" }}{{ end }}
+            {{ if eq . "biz_forms" }}{{ $displayName = "Business" }}{{ end }}
+            <span class="category" style="background: #e7f3ff; color: #007bff; padding: 2px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem;">
+                {{ $displayName }}
+            </span>
+            {{ end }}
+        </div>
+        <div class="post-desc" style="color: #495057; font-size: 0.95rem; line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-top: 12px;">
+            {{- if and .Description (ne .Description .Title) -}}
+                {{ .Description }}
+            {{- else -}}
+                {{ .Summary | plainify | truncate 200 }}
+            {{- end -}}
+        </div>
+    </li>
+    {{ end }}
+</ul>
+
+{{ partial "pagination.html" . }}
+{{ end }}

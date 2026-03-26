@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body>
+    {{ partial "header.html" . }}
+
+    <main style="padding: 40px 0; min-height: 70vh;">
+        <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+            {{ block "main" . }}{{ end }}
+        </div>
+    </main>
+
+    {{ partial "footer.html" . }}
+</body>
+</html>

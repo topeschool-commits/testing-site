@@ -1,0 +1,22 @@
+<header class="site-header" style="background-color: #1a1c2c !important; border-bottom: 2px solid #333; padding: 25px 0; width: 100%;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        
+        <a href="/" class="site-logo" style="display: block !important; text-decoration: none !important;">
+            <span style="color: #ffffff !important; font-size: 1.6rem !important; font-weight: 800 !important; letter-spacing: -0.05em !important;">
+                {{ .Site.Title }}
+            </span>
+        </a>
+
+        <nav class="site-nav" style="display: flex; gap: 20px;">
+            {{ $currentPage := . }}
+            {{ range .Site.Menus.main }}
+            {{ $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+            <a href="{{ .URL | relURL }}" 
+               class="{{ if $active }}active-menu{{ end }}" 
+               style="color: #ffffff !important; text-decoration: none; font-weight: 500; font-size: 0.95rem;">
+                {{ .Name }}
+            </a>
+            {{ end }}
+        </nav>
+    </div>
+</header>

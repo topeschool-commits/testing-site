@@ -1,0 +1,2 @@
+# AdSense 승인 후 아래 줄의 주석을 해제하고 pub-ID를 교체하세요
+google.com, pub-8982396795153735, DIRECT, f08c47fec0942fa0

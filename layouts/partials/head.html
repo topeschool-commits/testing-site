@@ -1,0 +1,41 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="google-adsense-account" content="ca-pub-8982396795153735">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8982396795153735" crossorigin="anonymous"></script>
+
+{{- /* 2. 변수 설정 */ -}}
+{{- $siteName := .Site.Title -}}
+{{- $firstLetter := substr $siteName 0 1 -}}
+{{- $faviconColor := "#007bff" -}}
+{{- $description := .Description | default .Site.Params.description | default "Professional Tech Insights" -}}
+
+<title>{{ if .IsHome }}{{ $siteName }}{{ else }}{{ .Title }} - {{ $siteName }}{{ end }}</title>
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="stylesheet" href="/css/style.css">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ if .IsHome }}{{ $siteName }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="/images/logo.png">
+<meta property="og:site_name" content="{{ $siteName }}">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='{{ $faviconColor | urlquery }}'/><text y='50%' x='50%' font-size='65' font-weight='900' font-family='Arial' dominant-baseline='central' text-anchor='middle' fill='white'>{{ $firstLetter }}</text></svg>">
+
+<style>
+    /* 💡 글로벌 네비게이션 스타일 */
+    .site-nav a:hover, .footer-nav a:hover { color: #007bff !important; text-decoration: underline !important; }
+    .site-nav a { transition: all 0.2s ease; position: relative; padding-bottom: 5px; }
+    .active-menu { border-bottom: 2px solid #ffffff !important; color: #ffffff !important; padding-bottom: 5px; }  
+
+    /* 📝 본문 가독성 최적화 */
+    .post-content { 
+        font-size: 1.15rem !important; 
+        line-height: 1.85 !important;  
+        color: #2c3e50 !important;   
+        word-break: keep-all; /* 한글 가독성 향상 */
+    }
+</style>

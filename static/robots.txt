@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /bin/
+Disallow: /config/
+
+Sitemap: https://future-tech-lab.com/sitemap.xml
