@@ -1,9 +1,10 @@
 baseURL = "https://topeschool-commits.github.io/testing-site/"
 languageCode = "en-us"
-title = "Testing Site"
+title = "Web Empire Builder - Testing Grounds"
 
 [params]
-  description = "New Empire Testing Site"
+  description = "Exploring the frontiers of AI-driven content, SEO automation, and digital monetization. Our innovative sandbox."
+  logo = "/images/logo.png"
 
 [menu]
   [[menu.main]]
@@ -11,10 +12,10 @@ title = "Testing Site"
     url = "/"
     weight = 1
   [[menu.main]]
-    name = "Category 1"
-    url = "/categories/category-1/"
+    name = "AI Lab"
+    url = "/categories/ai-lab/"
     weight = 2
   [[menu.main]]
-    name = "Category 2"
-    url = "/categories/category-2/"
+    name = "SEO Automation"
+    url = "/categories/seo-automation/"
     weight = 3
